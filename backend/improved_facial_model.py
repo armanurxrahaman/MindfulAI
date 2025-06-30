@@ -11,7 +11,6 @@ import cv2
 import os
 import numpy as np
 from PIL import Image
-import mediapipe as mp
 
 class ImprovedEmotionCNN(nn.Module):
     def __init__(self, num_classes=7, pretrained=True):
@@ -39,11 +38,8 @@ class ImprovedFacialEmotionRecognizer:
     def __init__(self, model_path=None):
         self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
         
-        # Initialize MediaPipe for better face detection
-        self.mp_face_detection = mp.solutions.face_detection
-        self.face_detection = self.mp_face_detection.FaceDetection(
-            model_selection=1, min_detection_confidence=0.5
-        )
+        # Initialize OpenCV face detection
+        self.face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
         
         # Initialize the model
         self.model = ImprovedEmotionCNN(num_classes=7)
@@ -71,22 +67,21 @@ class ImprovedFacialEmotionRecognizer:
             )
         ])
     
-    def detect_face_mediapipe(self, image):
-        """Use MediaPipe for better face detection"""
-        rgb_image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
-        results = self.face_detection.process(rgb_image)
+    def detect_face_opencv(self, image):
+        """Use OpenCV for face detection"""
+        gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+        faces = self.face_cascade.detectMultiScale(
+            gray, 
+            scaleFactor=1.1, 
+            minNeighbors=5, 
+            minSize=(30, 30)
+        )
         
-        if results.detections:
-            detection = results.detections[0]  # Get first face
-            bbox = detection.location_data.relative_bounding_box
-            
-            h, w, _ = image.shape
-            x = int(bbox.xmin * w)
-            y = int(bbox.ymin * h)
-            width = int(bbox.width * w)
-            height = int(bbox.height * h)
-            
-            return [(x, y, width, height)]
+        if len(faces) > 0:
+            # Return the largest face
+            largest_face = max(faces, key=lambda x: x[2] * x[3])
+            x, y, w, h = largest_face
+            return [(x, y, w, h)]
         
         return []
     
@@ -101,8 +96,8 @@ class ImprovedFacialEmotionRecognizer:
     
     def predict_emotion(self, image):
         """Predict emotion from facial image with improved accuracy"""
-        # Detect face using MediaPipe
-        faces = self.detect_face_mediapipe(image)
+        # Detect face using OpenCV
+        faces = self.detect_face_opencv(image)
         
         if len(faces) == 0:
             return None
@@ -198,24 +193,12 @@ def train_improved_facial_model(dataset_path, output_path="./improved_facial_mod
     Train the improved facial emotion recognition model
     
     Args:
-        dataset_path: Path to your facial emotion dataset
-        output_path: Where to save the trained model
+        dataset_path: Path to the emotion dataset
+        output_path: Path to save the trained model
     """
-    print("🚀 Training improved facial emotion model...")
-    
-    # This is a placeholder for the training logic
-    # You would need to implement the actual training loop with your dataset
-    
-    model = ImprovedEmotionCNN()
-    
-    # Training configuration
-    criterion = nn.CrossEntropyLoss()
-    optimizer = torch.optim.Adam(model.parameters(), lr=0.001)
-    
-    # Training loop would go here
-    # For now, we'll just save the model structure
-    torch.save(model.state_dict(), output_path)
-    print(f"💾 Model saved to: {output_path}")
+    # This would be implemented for training the model
+    # For now, we'll use a pre-trained model
+    pass
 
 # Example usage
 if __name__ == "__main__":

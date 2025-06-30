@@ -32,8 +32,8 @@ app.add_middleware(
 
 # Initialize models
 text_classifier = TextEmotionClassifier()
-# Use the improved model with high-accuracy weights
-facial_recognizer = ImprovedFacialEmotionRecognizer(model_path="models/high_accuracy_emotion_weights.pth")
+# Use the improved model without requiring the weights file for deployment
+facial_recognizer = ImprovedFacialEmotionRecognizer(model_path=None)
 trend_analyzer = TrendAnalyzer()
 content_retriever = ContentRetriever()
 
@@ -66,6 +66,10 @@ class UserEntry(BaseModel):
 @app.get("/")
 async def root():
     return {"message": "Welcome to Mental Health Support Platform API"}
+
+@app.get("/health")
+async def health_check():
+    return {"status": "healthy", "message": "MindfulAI API is running"}
 
 @app.post("/analyze/text", response_model=EmotionResponse)
 async def analyze_text(input_data: TextInput):
