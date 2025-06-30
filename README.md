@@ -87,6 +87,8 @@ Visit `http://localhost:3000` to access the application.
 
 Once the backend is running, visit `http://localhost:8000/docs` for interactive API documentation.
 
+**Note:** For easy browsing, the complete backend code is available in the [`backend-public`](./backend-public) folder. The [`mindfulai-backend`](./mindfulai-backend) folder is a submodule for workflow integration. If you are a recruiter or reviewer, please check `backend-public` for the backend implementation.
+
 ## 🌐 Deployment
 
 ### Backend Deployment
@@ -116,10 +118,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 **Armanur Rahaman Laskar**
 
 Connect with me:
-- [GitHub](https://github.com/armanurlaskar)
-- [LinkedIn](https://linkedin.com/in/armanurlaskar)
+- [GitHub](https://github.com/armanurxrahaman)
+- [LinkedIn](https://linkedin.com/in/armanurxrahaman)
 
 ---
 
-> "Technology meets mindfulness in this innovative approach to mental well-being."
-> **Note:** For easy browsing, the complete backend code is available in the [`backend-public`](./backend-public) folder. The [`mindfulai-backend`](./mindfulai-backend) folder is a submodule for workflow integration. If you are a recruiter or reviewer, please check `backend-public` for the backend implementation. 
+> "Technology meets mindfulness in this innovative approach to mental well-being." 
