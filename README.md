@@ -27,6 +27,7 @@ MindfulAI is a revolutionary mental health support platform developed by **Arman
   - Seamless user experience
 
 ## 🚀 Getting Started
+**Note:** For easy browsing, the complete backend code is available in the [`backend-public`](./backend-public) folder. The [`mindfulai-backend`](./mindfulai-backend) folder is a submodule for workflow integration. If you are a recruiter or reviewer, please check `backend-public` for the backend implementation.
 
 ### Prerequisites
 
@@ -86,8 +87,6 @@ Visit `http://localhost:3000` to access the application.
 ## 📚 API Documentation
 
 Once the backend is running, visit `http://localhost:8000/docs` for interactive API documentation.
-
-**Note:** For easy browsing, the complete backend code is available in the [`backend-public`](./backend-public) folder. The [`mindfulai-backend`](./mindfulai-backend) folder is a submodule for workflow integration. If you are a recruiter or reviewer, please check `backend-public` for the backend implementation.
 
 ## 🌐 Deployment
 
