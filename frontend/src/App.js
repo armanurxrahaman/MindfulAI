@@ -749,7 +749,8 @@ function App() {
                             mb: 3,
                             color: theme.palette.text.primary,
                             lineHeight: 1.7,
-                            fontSize: '1.05rem'
+                            fontSize: '1.05rem',
+                            whiteSpace: 'pre-line',
                           }}
                         >
                           {content.text}

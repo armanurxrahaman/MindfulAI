@@ -26,6 +26,14 @@ wheels/
 .installed.cfg
 *.egg
 MANIFEST
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+.python-version
 
 # PyTorch and Model Files
 *.pth
@@ -89,6 +97,7 @@ node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+.pnpm-debug.log*
 
 # Coverage reports
 htmlcov/
@@ -101,9 +110,6 @@ coverage.xml
 
 # Jupyter Notebook
 .ipynb_checkpoints
-
-# pyenv
-.python-version
 
 # pipenv
 Pipfile.lock
@@ -154,4 +160,13 @@ test_face.jpg
 !requirements.txt
 !README.md
 !package.json
-!package-lock.json 
+!package-lock.json
+
+# Project specific
+*.model
+*.pt
+*.pth
+.deepface/
+.cache/
+logs/
+*.log 
