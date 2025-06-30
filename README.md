@@ -1,6 +1,6 @@
 # MindfulAI - Your AI-Powered Mental Health Companion 🌟
 
-[![Made by Armanur](https://img.shields.io/badge/Made%20by-Armanur%20Rahaman%20Laskar-blue)](https://github.com/armanurlaskar)
+[![Made by Armanur](https://img.shields.io/badge/Made%20by-Armanur%20Rahaman%20Laskar-blue)](https://github.com/armanurxrahaman)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
 > A cutting-edge mental health support platform that combines advanced AI technologies to provide personalized emotional support and mindful guidance.
