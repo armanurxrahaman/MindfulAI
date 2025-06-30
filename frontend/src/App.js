@@ -315,7 +315,7 @@ function App() {
                 textShadow: isDarkMode ? '0 2px 4px rgba(0,0,0,0.3)' : '0 2px 4px rgba(0,0,0,0.1)'
               }}
             >
-              Welcome to Your Journey
+              Welcome to MindfulAI
             </Typography>
             <Typography 
               variant="h5" 
