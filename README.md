@@ -121,4 +121,5 @@ Connect with me:
 
 ---
 
-> "Technology meets mindfulness in this innovative approach to mental well-being." 
+> "Technology meets mindfulness in this innovative approach to mental well-being."
+**Note:** For easy browsing, the complete backend code is available in the [`backend-public`](./backend-public) folder. The [`mindfulai-backend`](./mindfulai-backend) folder is a submodule for workflow integration. If you are a recruiter or reviewer, please check `backend-public` for the backend implementation. 
